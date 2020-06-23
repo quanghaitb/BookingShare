@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %} 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form method=POST action="{{ url_for('Addauthor') }}" enctype = "multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ma Tac Gia</label>
+                    <input type="text" class="form-control" name="ma_tg" placeholder="Ma Tac Gia">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Ten Tac Gia</label>
+                    <input type="text" class="form-control" name="ten_tg" placeholder="Ten tac gia">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Dia Chi</label>
+                    <input type="text" class="form-control" name="diachi_tg" placeholder="Dia chi">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Likes</label>
+                    <input type="text" class="form-control" name="likes_tg" placeholder="Likes">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Mo ta</label>
+                    <input type="text" class="form-control" name="mota_tg" placeholder="Mo ta">
+                </div>
+                <div >
+                     <input type = "file" name = "url_tg" multiple/>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Add Author</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,332 @@
+#form {
+    width: 400px;
+    height: 250px;
+    margin-top: 50px;
+}
+.banner {
+    width: 100%;
+    height: 5%;
+    background-color: beige;
+    background-image: linear-gradient(to right, mediumblue, darkturquoise);
+}
+.id_page {
+    font-family: 'Lobster', cursive;
+    font-size: 60px;
+    color: white;
+    margin-left: 70px;
+}
+.headder {
+    width: 100%;
+    height: 10%;
+}
+
+.header .row {
+    height: 100px;
+    background-image: linear-gradient(to right, mediumblue, darkturquoise);
+}
+.header .row i {
+    margin-top: 20px;
+    color: white;
+
+}
+
+.header .row .col-md-4 {
+    height: 100px;
+}
+.header .row .col-md-2 .fa-home {
+    margin-left: 60px;
+}
+.header .row .col-md-4 .img-circle {
+    width: 50px;
+    height: 50px;
+    float: right;
+
+
+}
+.txt p {
+    font-family: 'Noto Serif', serif;
+
+}
+
+
+.dropdown {
+    width: 50px;
+    height: 50px;
+    float: left;
+     margin-top: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: gray;
+  min-width: 220px;
+  z-index: 1;
+    height: auto;
+    margin-top: 50px;
+    margin-left: -45px;
+
+}
+.dropdown-content p {
+    padding: 12px 16px;
+    color: white;
+}
+/*.dropdown-content  a {*/
+/*    text-decoration: none;*/
+/*     padding: 12px 16px;*/
+/*    color: white;*/
+/*}*/
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  /*padding-top: 50px;*/
+}
+
+
+
+.header .row .col-md-4 .save {
+    width: 70px;
+    height: 100px;
+    float: left;
+    margin-top: 15px;
+}
+.header .row .col-md-4  .notification {
+    width: 70px;
+    height: 100px;
+    position: relative;
+    float: left;
+}
+
+.header .row .col-md-4  .notification .txt_notification {
+    color: black;
+    padding:0px 0 0 0px;
+    background:red;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+    margin-top: -40px;
+    position: absolute;
+    font-size:20px;
+    border-radius: 50%;
+}
+
+.header .row .col-md-4 .fa-bell{
+    margin-top: 35px;
+}
+
+.header .row input {
+    margin-top: 30px;
+    border-radius: 25px;
+    height: 40px;
+}
+.footer {
+    margin-bottom: 10px;
+}
+.footer ul {
+    list-style: none;
+}
+.footer ul li {
+    float: left;
+}
+.content {
+    width: 100%;
+    height: 67.5%;
+}
+.item-menu a{
+    text-decoration: none;
+    list-style: none;
+}
+.footer {
+    width: 100%;
+    height: 15%;
+    background-color: darkgrey;
+}
+.footer .row .col-md-4 {
+    text-align: center;
+}
+.form-horizontal .form-group {
+   margin-top: 30px;
+}
+.slide {
+    width: 100%;
+    height: 40%;
+    margin-top: 0px;
+}
+.slide .title {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    margin-left: 35px;
+}
+.menu {
+    width: 100%;
+    height: 70%;
+    margin-top: 30px;
+}
+.menu ul {
+    list-style: none;
+    width: 100%;
+    padding: 50px 0px 0px 0 ;
+    height:50%;
+}
+.item-menu {
+    text-align: center;
+    margin-top: 100px;
+}
+.item-menu .txt {
+    font-size: 30px;
+    padding-top: 230px;
+    text-align: center;
+
+}
+
+.item-menu a i{
+
+    width: 100%;
+    height: 200px;
+    float: left;
+    color: darkcyan;
+}
+
+.container_pageuser {
+    width: 100%;
+    height: 100%;
+
+
+}
+.container_pageuser .image_user img{
+    width: 450px;
+    height: 500px;
+    margin-top: 90px;
+}
+.col-md-7 .infor_user ul {
+    list-style: none;
+    margin-top: 90px;
+    text-align: left;
+}
+.col-md-7 {
+    width: 100%;
+    height: 100%;
+}
+.col-md-7 .edit_user {
+    text-align: center;
+}
+.col-md-5 .image_user img {
+    width: 450px;
+    height: 500px;
+    margin-top: 90px;
+}
+.col-md-7 .form-edit {
+    margin-top: 90px;
+}
+.form-edit .form-group {
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+}
+
+/*Style of Listbook*/
+.items-sach {
+    width: 22%;
+    height: 200px;
+    float: left;
+    margin: 10px 0 70px 25px;
+    text-align: center;
+}
+
+.item-sach {
+    width: 100%;
+    float: left;
+    position: relative;
+    display: inline-block;
+    margin-top: 40px;
+}
+#itemsach {
+    position: relative;
+    display: inline-block;
+}
+
+.imgsach img {
+    width: 100%;
+    height: 150px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+.inforsach {
+     display: none;
+    width: 85%;
+    height: 70px;
+    text-align: center;
+    position: absolute;
+    background-color: white;
+    margin-top: -70px;
+    margin-left: 30px;
+    opacity: 0.8;
+    color: black;
+}
+#itemsach:hover .inforsach {
+  display: block;
+  /*padding-top: 50px;*/
+}
+.img-sach img {
+    width: 100%;
+    height: 250px;
+
+}
+#nut {
+    margin-left: 50px;
+}
+.infor-sach {
+    width: 100%;
+    height: 70px;
+    position: absolute;
+    background-color: white;
+    display: none;
+    margin-top: -70px;
+    opacity: 0.8;
+    font-family: Arial;
+}
+.item-sach:hover .infor-sach {
+  display: block;
+  /*padding-top: 50px;*/
+}
+
+/*Style of Phan trang*/
+.pages_number {
+    position: absolute;
+    width: auto;
+    height: 70px;
+    margin-left: 500px;
+    margin-top: -70px;
+}
+/*Style of Notification*/
+
+.Notificationhihi {
+    width: 60%;
+    height: 100%;
+    text-align: center;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+.notification {
+    position: relative;
+    display: inline-block;
+}
+.notification-drop {
+    display: none;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    background-color: white;
+    color: black;
+
+}
+.notification:hover .notification-drop {
+    display: block;
+}
+
+
+

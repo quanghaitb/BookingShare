@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+
+</head>
+<body>
+    <div class="listbook">
+        <div class="headder">
+                <div class="icon" >
+                    <a href="{{ url_for('home') }}"><img src="/api/image/home-icon-home-house-icon-house-icon-free-11553508857ouiuhg9nsa.png" ></a>
+                </div>
+            <div id="boxsearch">
+                <form action=" {{url_for('searchnamebook')}} "  method="post">
+                    <input type="text" name="searchnamebook" >
+                    <input type="submit" name="search" value="Tìm">
+                </form>
+            </div>
+            <div class="user_anh">
+                 <a href="/api/user/detailuser/{{ user['_id'] }}"><img src="/api/image/tải%20xuống%20(2).png" id="user_anh"></a>
+            </div>
+        </div>
+
+        <div class="content_listbook">
+            <div class="name_page">
+                <div>
+                     <a href="{{ url_for('home') }}"><img src="/api/image/images.png" id="name_page_img"></a>
+                </div>
+                <div  id="muc">
+                    <p><b>List Book Save</b></p>
+                </div>
+
+            </div>
+            <div class="List_book">
+                <ul>
+                    {% for item in listbooksave %}
+                        <li>
+                            <div class="img">
+                                    <a href="/api/book/detailbook/{{ item['_id'] }}"><img src="/api/image/{{ item['url_sach'] }}"></a>
+                                            <div id="text">
+                                                <p>{{ item['ten_sach'] }}</p>
+                                                <p>{{ item['ten_TG']}}</p>
+                                            </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+
+
+        </div>
+
+
+        <div class="footer">
+            <div class="pagination">
+                <a href="/api/book/booksave/1">&laquo;</a>
+                <a href="/api/book/booksave/1">1</a>
+                <a href="/api/book/booksave/2">2</a>
+                <a href="/api/book/booksave/3">3</a>
+                <a href="/api/book/booksave/3">&raquo;</a>
+            </div>
+            <ul>
+                <li class="save">
+                     <a href="/api/book/booksave/1"><img src="/api/image/images%20(2).jpg"></a>
+                </li>
+                <li class="Notification">
+                     <a href="/api/user/notification"><img src="/api/image/pngtree-notification--icon-in-trendy-style-isolated-background-png-image_4859213.jpg"></a>
+                    <div class="txt_notification">{{ user['thongbao_user'] }}</div>
+                </li>
+                <li class="home">
+                     <a href="{{url_for('home')}}"><img src="/api/image/home-icon-home-house-icon-house-icon-free-11553508857ouiuhg9nsa.png"></a>
+                </li>
+                <li class="like">
+                     <a href="/api/book/booklike/1"><img src="/api/image/icon-2445095_960_720.png"></a>
+                </li>
+                <li class="vanvan">
+                     <a href="{{url_for('logout')}}"><img src="/api/image/kisspng-computer-icons-iconfinder-action-item-list-icon-5ab0472ddd8c70.1980191515215019979075.jpg"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script>
+
+    </script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block content %}
+<div class="container_pageuser">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="image_user">
+                <img src="/api/image/{{ user['url_user'] }}">
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="infor_user">
+                 <ul>
+                    <li><h1><b>{{ user['hoten_user'] }}</b></h1></li>
+                    <li><h3>Email : {{ user['email_user'] }}</h3> </li>
+                    <li><h3>Số điện thoại : {{ user['sdt_user'] }}</h3></li>
+                    <li><h3>Địa chỉ : {{ user['diachi_user'] }}</h3></li>
+                </ul>
+                <div class="edit_user">
+                    <a href="/api/user/edituser" ><input class="btn btn-primary" type="button" value="Chỉnh sửa thông tin cá nhân" > </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
+

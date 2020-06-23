@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="/static/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function check_input_login() {
+            var username = document.forms["login"]["username"].value;
+            var pass = document.forms["login"]["password"].value;
+            if (username ==="" || pass==="")
+            {
+                alert("Tên tài khoản hoặc mật khẩu  trống !");
+                return false;
+            }
+
+        }
+    </script>
+</head>
+<body class="body">
+     <div class="container" >
+         <div class="row" id="div-login" >
+             {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                          <div class="alert alert-warning alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{message}}
+                          </div>
+                        {% endfor %}
+                    {% endif %}
+             {% endwith %}
+             <div class=".col-md-6 .offset-md-2" >
+                 <form action="{{ url_for('login') }}" method="post" id="form" name="login" onsubmit="return check_input_login()" style="height: 300px; padding-top: 10px; margin-left: 350px; margin-top: 200px; background-color: lightsteelblue;">
+                     <h1 style="margin-left: 100px;">ĐĂNG NHẬP</h1>
+
+                     <div class="form-group" >
+                         <label >Tên tài khoản</label>
+                         <input type="text"  id="nameinput" class="form-control"  placeholder="Tên tài khoản" name="username"  >
+
+                     </div>
+                     <div>
+                         <label >Mât khẩu</label>
+                         <input type="password" id="passwordinput" class="form-control"  placeholder="Mật khẩu" name="password" >
+
+                     </div>
+                     <input id="botton" class="btn btn-success" type="submit" value="Đăng nhâp" style="margin-left: 150px;" >
+                     <div style="float: left">
+                                Bạn chưa có tài khoản? <a href="{{ url_for('register') }}">Đăng kí tại đây</a>.
+                     </div>
+                 </form>
+             </div>
+         </div>
+
+     </div>
+
+</body>
+</html>

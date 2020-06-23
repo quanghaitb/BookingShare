@@ -1,0 +1,90 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block content %}
+    <div class="container_edituser">
+        <div class="content_edituser">
+            <div style="position: absolute; width: 60%;">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+
+            <div class="row">
+                <div class="col-md-5">
+                     <div class="image_user">
+                         <img id="imgDisplayarea">
+
+                     </div>
+                </div>
+                <div class="col-md-7">
+                    <form class="form-edit" method=POST action="{{ url_for('Addbook') }}" name="addbook" enctype = "multipart/form-data" onsubmit="return check_field_addbook()">
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label class="control-label col-sm-3" style="text-align: right;">Tên sách :</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="ten_sach" placeholder="Điền tên sách ">
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <label class="control-label col-sm-3" style="text-align: right;">Tên tác giả :</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="ten_TG" placeholder="Điền tên tác giả" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" style="text-align: right;">Tên thể loại :</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="ten_TL">
+                                    <option value="Tâm lý học">Tâm lý học</option>
+                                    <option value="Vật lý">Vật lý</option>
+                                    <option value="Đời sống-Xã hội">Đời sống-Xã hội</option>
+                                    <option value="Văn học">Văn học</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" style="text-align: right;">Số lượng :</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" name="soluong" multiple>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <label class="control-label col-sm-3" style="text-align: right;">Mô tả :</label>
+                            <div class="col-sm-8">
+                                <textarea type="text" class="form-control" name="mota_sach" multiple></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3" style="text-align: right;">Ảnh sách :</label>
+                            <div class="col-sm-8">
+                                <input type="file" class="form-control" name="anhddsach" multiple onchange="showimagepreview(this)">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <button type="submit" class="btn btn-primary" style="width: 20%;margin-left: 190px;" onsubmit="return check_field_addbook()">Thêm sách</button>
+                            <input  type="button" class="btn btn-primary" style="width: 20%;margin-left: 50px;" value="Hủy" onclick="goBack()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+
+
+
+
+

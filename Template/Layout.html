@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="../static/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>
+
+    </title>
+</head>
+<body class="body">
+     <div class="container" >
+         <div class=".col-md-4 .offset-md-4" style="height: 980px;">
+             <div class="header">
+                 <div class="row" style="width: 1140px;margin-left: 0px;">
+                     <div class="col-md-2">
+                         <a href=""><i class="fas fa-home" style="font-size: 50px;"></i></a>
+                     </div>
+                     <div class="col-md-6">
+                         <form action=" {{url_for('searchnamebook')}} "  method="post" >
+                            <input type="text" name="searchnamebook" style="width: 65%;">
+                            <input type="submit" name="search" value="Tìm" style="width: 20%;">
+                         </form>
+                     </div>
+                     <div class="col-md-4">
+                         <div class="notification">
+                             <a href=""><i class="fas fa-bell" style="font-size: 35px;"></i></a>
+                             <div class="txt_notification">1</div>
+                         </div>
+
+                         <div class="save">
+                             <a href="#"><i class="fas fa-save" style="font-size: 35px;"></i></a>
+                         </div>
+                         <div class="save">
+                             <a href="#"><i class="fas fa-heart" style="font-size: 35px;"></i></a>
+                         </div>
+                         <div class="dropdown">
+                             <a href="#"><img src="../Image/IMG_0019.JPG" class="img-circle" alt="Cinque Terre"> </a>
+
+                             <div class="dropdown-content">
+                                 <p style="text-align: center;"><b>Tên người dùng</b></p>
+                                 <a href="#"><p class="fas fa-user" style="">Thông tin người dùng</p></a>
+                                 <a href="#"><p class="fas fa-book" style="margin-left: 20px;">Sách đã mượn</p></a>
+                                 <a href="#"><p class="fas fa-sign-out-alt" style="margin-left: 30px;"> Đăng xuất</p></a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="content">
+                 {% block content %}
+                 {% endblock %}
+             </div>
+             <div class="footer">
+                 <div class="row">
+                     <div class="col-md-4">
+                         <h3>THÔNG TIN LIÊN HỆ</h3>
+                         <p>Họ và tên: Nguyễn Quang Hải</p>
+                         <p class="fa fa-facebook-square">Facebook: <a href="https://www.facebook.com/00QuangHai00" style="text-decoration: none;"> <b>Hải Nguyễn Quang</b></a></p>
+                         <p class="fas fa-building">Trường: <u>Đại học Công Nghiệp Hà Nội</u></p>
+                     </div>
+                     <div class="col-md-4">
+                         <h3>THÔNG TIN LIÊN HỆ</h3>
+                         <p>Họ và tên: Nguyễn Quang Hải</p>
+                         <p class="fa fa-facebook-square">Facebook: <a href="https://www.facebook.com/00QuangHai00" style="text-decoration: none;"> <b>Hải Nguyễn Quang</b></a></p>
+                         <p class="fas fa-building">Trường: <u>Đại học Công Nghiệp Hà Nội</u></p>
+                     </div>
+                     <div class="col-md-4">
+                         <h3>THÔNG TIN LIÊN HỆ</h3>
+                         <p>Họ và tên: Nguyễn Quang Hải</p>
+                         <p class="fa fa-facebook-square">Facebook: <a href="https://www.facebook.com/00QuangHai00" style="text-decoration: none;"> <b>Hải Nguyễn Quang</b></a></p>
+                         <p class="fas fa-building">Trường: <u>Đại học Công Nghiệp Hà Nội</u></p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+
+</body>
+</html>

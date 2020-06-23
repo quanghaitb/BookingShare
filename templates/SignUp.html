@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet " href="{{ url_for('static', filename='style.css') }}" type="text/css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    {% block style %}
+        <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    {% endblock %}
+    <script>
+        function check_field_signup() {
+            var ho_user = document.forms["register"]["ho_user"].value;
+            var ten_user = document.forms["register"]["ten_user"].value;
+            var gioitinh_user = document.forms["register"]["gioitinh_user"].value;
+            var email_user = document.forms["register"]["email_user"].value;
+            var diachi_user = document.forms["register"]["diachi_user"].value;
+            var sdt_user = document.forms["register"]["sdt_user"].value;
+            var username = document.forms["register"]["username"].value;
+            var password = document.forms["register"]["password"].value;
+            if (ho_user=="" ||ten_user=="" || gioitinh_user=="" || email_user=="" || diachi_user=="" || sdt_user==""|| username==""|| password=="")
+            {
+                alert("Không được để trống!");
+                return false;
+            }
+        }
+    </script>
+    <title>
+
+    </title>
+</head>
+<body class="body">
+     <div class="container" >
+         <div class=".col-md-4" style="height: 1000px;">
+             <div class="banner" >
+                 <img src="/api/image/Screenshot_2020-06-09%20Tạo%20chữ%20khối%203D(1).png" style="width: 100%;height: 100%;">
+             </div>
+             <div class="content">
+                 {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                          <div class="alert alert-warning alert-dismissible" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{message}}
+                          </div>
+                        {% endfor %}
+                    {% endif %}
+                 {% endwith %}
+                 <div class="container-signup">
+                     <form class="form-horizontal" method=POST action="{{ url_for('register') }}" name="register" enctype = "multipart/form-data" onsubmit="return check_field_signup()">
+                         <h3>Đăng kí thành viên</h3>
+                         <br>
+                         <br>
+                         <div class="form-group">
+                             <label class="control-label col-sm-2" >Họ :</label>
+                             <div class="col-sm-3">
+                                 <input type="text" class="form-control" name="ho_user" placeholder="Điền họ ">
+                             </div>
+                             <label class="control-label col-sm-1" >Tên :</label>
+                             <div class="col-sm-3">
+                                 <input type="text" class="form-control" name="ten_user" placeholder="Điền tên">
+                             </div>
+                         </div>
+                         <div class="form-group" >
+                             <label class="control-label col-sm-2" >Giới tính :</label>
+                             <input type="radio" name="gioitinh_user" value="Nam" checked="checked" class="control-label col-sm-1">
+                             <label class="control-label col-sm-2" style="text-align: left;">Nam</label>
+                             <input type="radio" name="gioitinh_user" value="Nu" class="control-label col-sm-1" >
+                             <label class="control-label col-sm-2" style="text-align: left;">Nữ</label>
+                         </div>
+                         <div class="form-group" >
+                             <label class="control-label col-sm-2" >Email :</label>
+                             <div class="col-sm-7">
+                                 <input type="email" class="form-control" name="email_user" placeholder="Điền email">
+                             </div>
+                         </div>
+                         <div class="form-group" >
+                             <label class="control-label col-sm-2">Số điện thoại :</label>
+                             <div class="col-sm-7">
+                                 <input type="tel" class="form-control" name="sdt_user" placeholder="Điền số điện thoại">
+                             </div>
+                         </div>
+                         <div class="form-group">
+                             <label class="control-label col-sm-2" >Địa chỉ :</label>
+                             <div class="col-sm-7">
+                                 <input type="text" class="form-control" name="diachi_user" placeholder="Điền địa chỉ">
+                             </div>
+                         </div>
+                         <div class="form-group">
+                             <label class="control-label col-sm-2" >Tên đăng nhập :</label>
+                             <div class="col-sm-3">
+                                 <input type="text" class="form-control" name="username" placeholder="Điền tên đăng nhập">
+                             </div>
+                             <label class="control-label col-sm-1" >Password:</label>
+                             <div class="col-sm-3">
+                                 <input type="password" class="form-control" name="password" placeholder="Điền password">
+                             </div>
+                         </div>
+                         <div class="form-group">
+                             <label class="control-label col-sm-2" >Ảnh đại diện :</label>
+                             <div class="col-sm-7">
+                                 <input type="file" class="form-control" name="url_user" multiple>
+                             </div>
+                         </div>
+                         <div class="form-group" >
+                             <button type="submit" class="btn btn-primary" style="width: 20%;margin-left: 250px;" onsubmit="return check_field_signup()">Đăng kí thành viên</button>
+                             <a href="/Login" ><button  type="button" class="btn btn-primary" style="width: 20%;margin-left: 50px;" >Hủy đăng kí</button></a>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+             <div class="footer">
+                 <div class="row">
+                     <div class="col-md-4">
+                         <h3>THÔNG TIN LIÊN HỆ</h3>
+                         <p>Họ và tên: Nguyễn Quang Hải</p>
+                         <p class="fa fa-facebook-square">Facebook: <a href="https://www.facebook.com/00QuangHai00" style="text-decoration: none;"> <b>Hải Nguyễn Quang</b></a></p>
+                         <p class="fas fa-building">Trường: <u>Đại học Công Nghiệp Hà Nội</u></p>
+                     </div>
+                     <div class="col-md-4">
+                         <h3>THÔNG TIN LIÊN HỆ</h3>
+                         <p>Họ và tên: Nguyễn Quang Hải</p>
+                         <p class="fa fa-facebook-square">Facebook: <a href="https://www.facebook.com/00QuangHai00" style="text-decoration: none;"> <b>Hải Nguyễn Quang</b></a></p>
+                         <p class="fas fa-building">Trường: <u>Đại học Công Nghiệp Hà Nội</u></p>
+                     </div>
+                     <div class="col-md-4">
+                         <h3>THÔNG TIN LIÊN HỆ</h3>
+                         <p>Họ và tên: Nguyễn Quang Hải</p>
+                         <p class="fa fa-facebook-square">Facebook: <a href="https://www.facebook.com/00QuangHai00" style="text-decoration: none;"> <b>Hải Nguyễn Quang</b></a></p>
+                         <p class="fas fa-building">Trường: <u>Đại học Công Nghiệp Hà Nội</u></p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+
+</body>
+</html>

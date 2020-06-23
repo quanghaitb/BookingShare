@@ -1,0 +1,99 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block title %}
+        <h3 style="font-family: Arial;font-style: oblique; color: darkcyan;" >THỂ LOẠI</h3>
+{% endblock title %}
+{% block skip %}
+    <div class="pages_number">
+        <ul class="pagination">
+            <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+            </li>
+            <li><a href="/api/category/showcategory/1">1</a></li>
+            <li><a href="/api/category/showcategory/2">2</a></li>
+            <li><a href="/api/category/showcategory/3">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+<!--        <a href="/api/book/addbook" ><input  type="button" class="btn btn-primary" style="margin-top: -50px;margin-left: 300px;" value="Thêm thể loại"></a>-->
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="listbook">
+        <div class="content_listbook">
+            <div class="List_book">
+                    {% for item in data %}
+                    <a href="/api/book/showbook/{{ item['ten'] }}/1">
+                        <div class="items-sach" >
+                            <div class="item-sach">
+                                <div class="img-sach">
+                                    <img src="/api/image/{{ item['url_TL'] }}">
+                                </div>
+                                <div class="infor-sach">
+                                    <h5><b>{{ item['ten'] }}</b></h5>
+                                    <h5><b>{{ item['soluong'] }}</b></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <div class="container_Category" >-->
+<!--        <div class="content_listccategory">-->
+<!--            <div class="name_page">-->
+<!--                <div>-->
+<!--                     <a href="{{ url_for('home') }}"><img src="/api/image/images.png" id="name_page_img"></a>-->
+<!--                </div>-->
+<!--                <div  id="muc">-->
+<!--                    <p><b>List Category</b></p>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="content_category_list">-->
+<!--               <a href="/api/category/showcategory/1" >-->
+<!--                   {% for item in data %}-->
+<!--                       <a href="/api/book/showbook/{{ item['ten'] }}/1">-->
+<!--                        <div class="item item1" href="#">-->
+<!--                           <strong><p style="font-size: 30px;">{{ item['ten'] }}    </p></strong>-->
+<!--                           <p style="font-size: 20px;">Số lượng: {{ item['soluong'] }}</p>-->
+<!--                       </div>-->
+<!--                       </a>-->
+
+<!--                   {% endfor %}-->
+<!--               </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        -->
+<!--    </div>-->

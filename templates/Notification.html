@@ -1,0 +1,41 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block title %}
+        <h3>THÔNG BÁO</h3>
+{% endblock title %}
+{% block content %}
+    <div class="Notificationhihi">
+            <div class="listnotification">
+                {% for item in ds %}
+                     {% if item['trangthai'] == 0 and user['hoten_user']==item['hoten_nsh']%}
+                        <a href="/api/user/detailbookborrow/{{ item['id_borrowbook'] }}">
+                            <div class="listnotification-item">
+                                <p style="font-size: 20px; ">Thông báo: " Thành viên {{ item['hoten_usermuon'] }} muốn mượn sách  của bạn. Nhấn để xem chi tiết"</p>
+                            </div>
+                        </a>
+                    {% endif %}
+                    {% if item['trangthai'] == 1 and user['hoten_user']==item['hoten_usermuon'] %}
+<!--                        <a href="/api/user/detailuser/{{ item['id_nsh']}}">-->
+                            <div class="listnotification-item">
+                                <p style="font-size: 20px; ">Thông báo: " Thành viên {{ item['hoten_nsh'] }} đồng ý yêu cầu mượn sách của bạn"</p>
+                            </div>
+<!--                        </a>-->
+                    {% endif %}
+                {% if item['trangthai'] == 2 and user['hoten_user']==item['hoten_usermuon'] %}
+<!--                        <a href="/api/user/detailuser/{{ item['id_nsh']}}">-->
+                            <div class="listnotification-item">
+                                <p style="font-size: 20px; ">Thông báo: " Thành viên {{ item['hoten_nsh'] }} không  đồng ý yêu cầu mượn sách của bạn"</p>
+                            </div>
+<!--                        </a>-->
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+<!--{{ item['ten_sach'] }}-->

@@ -1,0 +1,91 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block title %}
+        <h3 style="font-family: Arial;font-style: oblique; color: darkcyan;" >TÁC GIẢ</h3>
+{% endblock title %}
+{% block skip %}
+    <div class="pages_number">
+        <ul class="pagination">
+            <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+            </li>
+            <li><a href="/api/author/showauthor/1">1</a></li>
+            <li><a href="/api/author/showauthor/2">2</a></li>
+            <li><a href="/api/author/showauthor/3">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+<!--        <a href="/api/book/addbook" ><input  type="button" class="btn btn-primary" style="margin-top: -50px;margin-left: 300px;" value="Thêm sách"></a>-->
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="listbook">
+        <div class="content_listbook">
+            <div class="List_book">
+                {% for item in cursor1 %}
+                    <div class="items-sach" >
+                        <div class="item-sach">
+                            <div class="img-sach">
+                                <a href="/api/author/detailauthor/{{ item['_id']}}"><img src="/api/image/{{ item['url_TG'] }}"></a>
+                            </div>
+                            <div class="infor-sach">
+                                <h5><b>{{ item['ten_TG'] }}</b></h5>
+                                <h5><b>Likes: {{ item['likes_TG']}}</b></h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+<!--    <div class="listbook">-->
+<!--        <div class="content_listbook" onload=" return hiih()">-->
+<!--            <div class="name_page">-->
+<!--                <div>-->
+<!--                     <a href="{{ url_for('home') }}"><img src="/api/image/images.png" id="name_page_img"></a>-->
+<!--                </div>-->
+<!--                <div  id="muc">-->
+<!--                    <p><b>AUTHOR</b></p>-->
+<!--                </div>-->
+<!--             <div class="add_book">-->
+<!--                <a href="{{url_for('Addauthor')}}"><img src="/api/image/signo-mas-en-un-circulo_318-53198.jpg" id="add_book_img"></a>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--            <div class="List_book">-->
+<!--                <ul>-->
+<!--                    {% for item in cursor %}-->
+<!--                        <li>-->
+<!--                            <div class="img">-->
+<!--                                    <a href="/api/author/detailauthor/{{ item['_id']}}"><img src="/api/image/{{ item['url_TG'] }}"></a>-->
+<!--                                            <div id="text">-->
+<!--                                                <p>{{ item['ten_TG'] }}</p>-->
+<!--                                            </div>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+

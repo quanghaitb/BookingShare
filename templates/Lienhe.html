@@ -1,0 +1,38 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block content %}
+<div class="container_pageuser">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="image_user">
+                <img src="/api/image/{{ exiting['url_sach'] }}">
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="infor_user">
+                 <ul>
+                     <li><h1><b>Sở hữu: {{ nsh['hoten_user'] }}</b></h1></li>
+                     <li><h3>Số điện thoại: {{nsh['sdt_user']}} </h3> </li>
+                     <li><h3>Địa chỉ  : {{nsh['diachi_user']}}</h3></li>
+                     <li><h3>Gmail : {{ nsh['email_user']}}</h3></li>
+                     <input type="submit" name="message" value="Gửi tin nhắn ">
+                     <textarea  style="width: 600px; height: 200px; resize: none;" type="text" class="form-control" row="5" id="message" name="message" ></textarea>
+                </ul>
+                <div class="edit_user">
+                    <a href="#"><input type="button" id="guitinnhan" name="send_message" value="Gửi tin nhắn online" style=" margin-left: 0px; margin-top: 10px; height: 50px;"></a>
+                    <a href="https://mail.google.com/mail/u"><input type="button" id="guimail" name="send_email" value="Gửi mail" style=" width: 168px;margin-left: 0px; margin-top: 10px; height: 50px;"></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
+

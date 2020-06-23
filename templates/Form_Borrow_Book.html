@@ -1,0 +1,56 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+
+    <script>
+            $(document).ready(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/book/borrow/{{ exiting['_id'] }}',
+                    success: function (data) {
+                        if(data===true){
+
+                        }
+
+                        else if (data===false){
+
+                        }
+                        else {
+
+                        }
+
+                    }
+                });
+            });
+    </script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block content %}
+    <div class="container_pageuser">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="image_user">
+                        <img src="/api/image/{{ exiting['url_sach'] }}">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                        <form class="form-edit" method="post" action="/api/book/borrow/{{ exiting['_id'] }}" name="insertRequest" >
+                            <div class="detail_book">
+                                <h2><strong>Tên sách  :  {{ exiting['ten_sach'] }}</strong> </h2>
+                                <h3>Tác giả : {{ exiting['ten_TG'] }}</h3>
+                                <h3>Người sở hữu : {{ owner['hoten_user'] }} </h3>
+                                <label style="font-size: 18px;"><b>Ngày dự kiến mượn :</b></label>
+                                <input type="date" name="ngaymuon" value="Ngày mượn" style="margin-left: 15px;" min="">
+                                <input type="button" name="search" value="Lời nhắn " style="display: block; margin-top: 20px;">
+                                <textarea name="ghichu_request" style="width: 500px; height: 200px;" autofocus ></textarea>
+
+                            </div>
+                            <div id="nut" style="margin-left: 50px;">
+                                <input type="submit" class="btn btn-primary" name="guitt" value="Gửi phiếu mượn " style="width: 200px;height: 50px;">
+                                <input type="button" class="btn btn-primary" name="cancer" value="Hủy" style="width: 200px; height: 50px;" onclick="goBack()">
+                            </div>
+                        </form>
+                </div>
+            </div>
+    </div>
+{% endblock content %}

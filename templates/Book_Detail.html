@@ -1,0 +1,111 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script>
+        $(document).ready(function(){
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/user/checkbookborrow/{{ exiting['_id'] }}/{{ user['_id'] }}',
+                    success: function (data) {
+                        if(data===true){
+                             $("#muonsachnha").show();
+                             $("#damuon").hide();
+                             $("#guiyeucau").hide();
+                             $("#chusach").hide();
+                             $("#hetsoluong").hide();
+                        }
+
+                        else if (data===false){
+                            $("#muonsachnha").hide();
+                            $("#damuon").hide();
+                            $("#guiyeucau").show();
+                            $("#chusach").hide();
+                            $("#hetsoluong").hide();
+                        }
+                        else if(data===0){
+                            $("#muonsachnha").hide();
+                            $("#damuon").show();
+                            $("#guiyeucau").hide();
+                            $("#chusach").hide();
+                            $("#hetsoluong").hide();
+                        }
+                        else if(data===2){
+                            $("#muonsachnha").hide();
+                            $("#damuon").hide();
+                            $("#guiyeucau").hide();
+                            $("#chusach").hide();
+                            $("#hetsoluong").show();
+                        }
+                        else {
+                            $("#muonsachnha").hide();
+                            $("#damuon").hide();
+                            $("#guiyeucau").hide();
+                            $("#chusach").show();
+                            $("#hetsoluong").hide();
+                        }
+
+                    }
+                });
+    });
+        $(document).ready(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/user/checkbooklike/{{ exiting['_id'] }}',
+                    success: function (data) {
+                        if(data===true){
+                             $("#bookliked").hide();
+                             $("#booklike").show();
+                        }
+
+                        else if (data===false){
+                            $("#booklike").hide();
+                            $("#bookliked").show();
+                        }
+                    }
+                });
+    });
+    </script>
+
+{% endblock %}
+{% extends "Layout.html" %}
+{% block content %}
+<div class="container_pageuser">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="image_user">
+                <img src="/api/image/{{ exiting['url_sach'] }}">
+            </div>
+             <a href="/api/user/addbooklike/{{ exiting['_id'] }}">
+                 <input type="submit" id="booklike" name="booklike" value="Thích" style=" margin-left: 150px; margin-top: 10px; height: 50px;">
+             </a>
+             <a href="/api/user/addbooklike/{{ exiting['_id'] }}">
+                 <input type="submit" id="bookliked" name="bookliked" value="Bỏ thích" style=" margin-left: 150px; margin-top: 10px; height: 50px;">
+             </a>
+
+        </div>
+        <div class="col-md-7">
+            <div class="infor_user">
+                 <ul>
+                     <li><h1><b>{{ exiting['ten_sach'] }}</b></h1></li>
+                     <li><h3>Tên tác giả : <a href="/api/author/detailauthorname/{{ exiting['ten_TG'] }}"  style="text-decoration: none;">{{ exiting['ten_TG'] }}</a></h3> </li>
+                     <li><h3>Tên thể loại : <a href="/api/book/showbook/{{ exiting['ten_TL'] }}/1" style="text-decoration: none">{{ exiting['ten_TL'] }}</a></h3></li>
+                     <li><h3> Số lượng còn : {{ exiting['soluong'] }}</h3></li>
+                     <li><h3>Người sở hữu : {{ owner['hoten_user'] }}</h3></li>
+                     <textarea  style="width: 600px; height: 200px; resize: none;" type="text" class="form-control" row="5" id="comment" name="mota" disabled > {{ exiting['mota_sach'] }}</textarea>
+                </ul>
+                <div class="edit_user">
+                    <a href="/api/book/borrow/{{ exiting['_id']}}"><input type="button" id="muonsachnha" name="muonsach" value="Mượn sách " style=" margin-left: 0px; margin-top: 10px; height: 50px;"></a>
+                    <a href="#"><input type="button" id="damuon" name="damuonsach" value="Sách đã mượn" style=" margin-left: 0px; margin-top: 10px; height: 50px;"></a>
+                    <a href="#"><input type="button" id="guiyeucau" name="guiyeucau" value="Đang gửi yêu cầu" style=" margin-left: 0px; margin-top: 10px; height: 50px;"></a>
+                    <a href="#"><input type="button" id="hetsoluong" name="hetsoluong" value="Hết sách" style=" margin-left: 0px; margin-top: 10px; height: 50px;"></a>
+                    <a href="#"><input type="button" id="chusach" name="chusach" value="Sách của bạn" style=" margin-left: 0px; margin-top: 10px; height: 50px;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+
+

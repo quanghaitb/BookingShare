@@ -1,0 +1,62 @@
+{% block style %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+{% endblock %}
+{% extends "Layout.html" %}
+{% block title %}
+        <h3 style="font-family: 'Roboto Slab', serif; color: darkcyan;" >TRANG CHỦ</h3>
+{% endblock title %}
+{% block content %}
+    <div class="menu">
+        <ul >
+            <li>
+                <div class="col-md-3">
+                    <div class="item-menu">
+                        <a href="/api/book/showbook/1" ><i class="fa fa-book" aria-hidden="true" style="font-size: 200px;"></i></a>
+                        <div class="txt" >
+                            <p>SÁCH</p>
+                        </div>
+                    </div>
+               </div>
+            </li>
+            <li>
+                <div class="col-md-3">
+                    <div class="item-menu">
+                        <a href="/api/category/showcategory/1" ><i class="fa fa-list-alt" aria-hidden="true" style="font-size: 200px;"></i></a>
+                        <div class="txt" >
+                            <p>THỂ LOẠI</p>
+                        </div>
+                    </div>
+               </div>
+            </li>
+            <li>
+                <div class="col-md-3">
+                    <div class="item-menu">
+                        <a href="/api/author/showauthor/1" ><i class="fa fa-user" aria-hidden="true" style="font-size: 200px;"></i></a>
+                        <div class="txt">
+                            <p>TÁC GIẢ</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="col-md-3">
+                   <div class="item-menu">
+                       <a href="#" ><i class="fa fa-bar-chart" aria-hidden="true" style="font-size: 200px;"></i></a>
+                        <div class="txt">
+                            <p>THỐNG KÊ</p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+{% endblock content %}
+
+
+
+
+<!--<img src="/api/image/pngtree-book-line-black-icon.-png-image_3746347.jpg" >-->
+<!--<img src="/api/image/pngtree-list-icon-sign-png-image_3569691.jpg">-->
+<!--<img src="/api/image/tải%20xuống%20(3).png" >-->
+<!--<img src="/api/image/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f363132303433312f313639333233352f62373337366163382d356538622d313165332d393135382d6661313961313263663133612e706e67.png" >-->

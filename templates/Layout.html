@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="/static/style.css" type="text/css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {% block style %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename='javascript.js') }}"></script>
+    <script href="{{ url_for('static', filename='style.css') }}"></script>
+</head>
+<body class="body">
+     <div class="container" style="">
+         <div class=".col-md-4" style="height: 1100px;">
+             <div class="banner" >
+                 <span class="id_page"> Booking Share</span>
+             </div>
+             <div class="header">
+                 <div class="row" style="width: 100%;margin-left: 0px;">
+                     <div class="col-md-2">
+                         <a href="{{ url_for('home') }}"><i class="fas fa-home" style="font-size: 50px;color: white;"></i></a>
+                     </div>
+                     <div class="col-md-6">
+                         <form action=" {{url_for('searchnamebook')}} "  method="post" >
+                            <input type="text" name="searchnamebook" style="width: 65%;">
+                            <input type="submit" name="search" value="Tìm" style="width: 20%;">
+                         </form>
+                     </div>
+                     <div class="col-md-4">
+                         <div class="notification">
+                             <a href="/api/user/notification"><i class="fas fa-bell" style="font-size: 35px;color: white;"></i></a>
+                             <div class="txt_notification">{{ user['thongbao_user'] }}</div>
+                         </div>
+                         <div class="save">
+                             <a href="/api/book/booklike/1"><i class="fas fa-heart" style="font-size: 35px;color: white;"></i></a>
+                         </div>
+                         <div class="dropdown" style="margin-left: 50px;">
+                             <a href="/api/user/detailuser"><img src="/api/image/{{user['url_user']}}" class="img-circle" alt="Cinque Terre"> </a>
+
+                             <div class="dropdown-content">
+                                 <p style="text-align: center;"><b>{{user['hoten_user']}}</b></p>
+                                 <a href="/api/user/detailuser"><p class="fas fa-user" style="">Thông tin người dùng</p></a>
+                                 <a href="/api/book/bookborrow/1"><p class="fas fa-book" style="margin-left: 20px;">Sách đã mượn</p></a>
+                                 <a href="{{url_for('logout')}}"><p class="fas fa-sign-out-alt" style="margin-left: 30px;"> Đăng xuất</p></a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="content">
+                 {% block title %}
+                 {% endblock %}
+                 {% block message %}
+                 {% endblock %}
+                 {% block content %}
+                 {% endblock %}
+
+             </div>
+             {% block skip %}
+             {% endblock %}
+             <div class="footer">
+                 <div class="row">
+                     <div class="col-md-4">
+                         <h3 style="font-family: 'Noto Serif', serif;">  THÔNG TIN LIÊN HỆ</h3>
+                         <p style="font-family: 'Noto Serif', serif;">Họ và tên: Nguyễn Quang Hải</p>
+                         <p style="font-family: 'Noto Serif', serif;"><strong>Facebook: </strong><a href="https://www.facebook.com/00QuangHai00" style="text-decoration: none;"> <b>Hải Nguyễn Quang</b></a></p>
+                         <p class="fas fa-building" >Trường: <a href="https://www.haui.edu.vn/vn">Đại học Công Nghiệp Hà Nội</a></p>
+                     </div>
+                     <div class="col-md-4">
+                         <h3 style="font-family: 'Noto Serif', serif;">CÔNG TY THỰC TẬP</h3>
+                         <p style="font-family: 'Noto Serif', serif; font-size: 18px;" ><strong>CONERA</strong></p>
+                         <p style="font-family: 'Noto Serif', serif;"><span>Địa chỉ: 16 Floor, HL Tower, 6/82 Alley, Duy Tan Street, Cau Giay, Ha Noi, Viet Nam</span></p>
+                         <p style="font-family: 'Noto Serif', serif;">Website: <a href="http://conera.io/" style="text-decoration: none;"><img src="/api/image/conera.png" width="20px;"height="20px;"> <b>CONERA.IO</b></a></p>
+                     </div>
+                     <div class="col-md-4">
+                         <h3 style="font-family: 'Noto Serif', serif;">THỜI GIAN </h3>
+                         <br>
+                         <p style="font-family: 'Noto Serif', serif;">Ngày bắt đầu : 20-02-2020</p>
+                         <p style="font-family: 'Noto Serif', serif;">Ngày hoàn thành : 20-06-2020 </p>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+
+</body>
+</html>
+
+
